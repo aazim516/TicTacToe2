@@ -1,0 +1,33 @@
+public class Decrypt{
+    public String message;
+    public Decrypt(String k){
+        message=k;
+    }
+    public String decrypt()
+    {
+        String newString="";
+        for(int i=0; i<=26;i++){
+            for(int m=0;m<message.length();m++)
+            {
+                char ch=message.charAt(m);
+                if(Character.isWhitespace(ch))
+                {
+                    System.out.print((char)(ch));
+                    continue;
+                }
+                int ac=((int)(ch))+i;
+                if((message.charAt(m)<=90&&message.charAt(m)>=65&&ac>90) || (message.charAt(m)<=122&&message.charAt(m)>=97&&ac>122))
+                {
+                    newString=Character.toString((char)(ac-26)); 
+                }
+                else
+                {
+                newString=Character.toString((char)(ch+i));    
+                }
+                System.out.print(newString); 
+            }
+            System.out.println("");
+        }
+         return newString;  
+    }
+}
